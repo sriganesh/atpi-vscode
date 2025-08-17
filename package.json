@@ -1,0 +1,197 @@
+{
+  "name": "atpi-vscode",
+  "displayName": "ATPI - Instant AT Protocol JSON Previewer",
+  "description": "Instantly preview atproto JSON data in VS Code",
+  "version": "1.0.3",
+  "publisher": "atproto-builders",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0066CC",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "atprotocol",
+    "atproto",
+    "bluesky",
+    "at-protocol",
+    "atpi",
+    "did"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "atpi.resolveUrl",
+        "title": "ATPI: Resolve AT Protocol URL"
+      },
+      {
+        "command": "atpi.changeMode",
+        "title": "ATPI: Change Resolution Mode"
+      },
+      {
+        "command": "atpi.batchResolve",
+        "title": "ATPI: Batch Resolve URLs"
+      },
+      {
+        "command": "atpi.copyAsJson",
+        "title": "ATPI: Copy Resolved Data as JSON"
+      },
+      {
+        "command": "atpi.showInPanel",
+        "title": "ATPI: Show in Panel"
+      },
+      {
+        "command": "atpi.clearCache",
+        "title": "ATPI: Clear All Caches"
+      },
+      {
+        "command": "atpi.openInAtproto",
+        "title": "ATPI: Open in atproto.at"
+      },
+      {
+        "command": "atpi.openInAtpi",
+        "title": "ATPI: Open in atpi.at"
+      }
+    ],
+    "configuration": {
+      "title": "ATPI",
+      "properties": {
+        "atpi.resolutionMode": {
+          "type": "string",
+          "default": "local",
+          "enum": ["local", "remote", "auto"],
+          "description": "Default resolution mode for AT Protocol URLs"
+        },
+        "atpi.timeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "Request timeout in milliseconds"
+        },
+        "atpi.remoteBaseUrl": {
+          "type": "string",
+          "default": "https://atpi.",
+          "description": "Base URL for remote resolution"
+        },
+        "atpi.enableCache": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable caching of resolved data"
+        },
+        "atpi.cacheDuration": {
+          "type": "number",
+          "default": 3600000,
+          "description": "Cache duration in milliseconds (default: 1 hour)"
+        },
+        "atpi.showCodeLens": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show CodeLens above AT Protocol URLs"
+        },
+        "atpi.hoverMaxLength": {
+          "type": "number",
+          "default": 20000,
+          "description": "Maximum characters to show in hover tooltips (0 for unlimited)"
+        },
+        "atpi.enableCompletionCache": {
+          "type": "boolean",
+          "default": false,
+          "description": "Cache collections and records for autocomplete (disabled by default for development)"
+        },
+        "atpi.showRecordPreviewOnCompletion": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show JSON preview panel when selecting a record from autocomplete"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "atpi.resolveUrl",
+        "key": "ctrl+shift+2",
+        "mac": "cmd+shift+2",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "atpi.resolveUrl",
+          "when": "editorTextFocus",
+          "group": "atpi"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "atpi.resolveUrl",
+          "when": "editorIsOpen"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "atpiHistory",
+          "name": "ATPI History",
+          "icon": "$(history)",
+          "contextualTitle": "ATPI Resolution History"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "atpi",
+          "title": "ATPI",
+          "icon": "$(link)"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "npm run compile && vsce package",
+    "publish": "npm run compile && vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-electron": "^2.3.8",
+    "@types/mocha": "^10.0.6",
+    "mocha": "^10.2.0",
+    "@types/glob": "^8.1.0",
+    "glob": "^8.1.0"
+  },
+  "dependencies": {
+    "atpi": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sriganesh/atpi-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/sriganesh/atpi-vscode/issues"
+  },
+  "homepage": "https://github.com/sriganesh/atpi-vscode#readme",
+  "author": "Atproto Builders",
+  "license": "MIT"
+}
