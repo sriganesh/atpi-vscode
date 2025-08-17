@@ -2,7 +2,7 @@
   "name": "atpi-vscode",
   "displayName": "ATPI - Instant AT Protocol JSON Previewer",
   "description": "Instantly preview atproto JSON data in VS Code",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "atproto-builders",
   "icon": "icon.png",
   "galleryBanner": {

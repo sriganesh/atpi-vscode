@@ -2,6 +2,11 @@
 
 All notable changes to the "atpi-vscode" extension will be documented in this file.
 
+## [1.0.4] - 2025-08-17
+
+### Fixed:
+- Include demo GIF in extension package for marketplace display
+
 ## [1.0.3] - 2025-08-17
 
 ### Added:
