@@ -2,6 +2,11 @@
 
 All notable changes to the "atpi-vscode" extension will be documented in this file.
 
+## [1.0.5] - 2025-08-17
+
+### Fixed:
+- Move demo GIF to root directory for proper marketplace display
+
 ## [1.0.4] - 2025-08-17
 
 ### Fixed:
