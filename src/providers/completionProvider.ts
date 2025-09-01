@@ -63,7 +63,7 @@ export class AtpiCompletionItemProvider implements vscode.CompletionItemProvider
                     
                     item.range = range;
                     item.documentation = new vscode.MarkdownString(
-                        this.getCollectionDocumentation(collection)
+                        `AT Protocol collection: ${collection}`
                     );
                     item.detail = 'AT Protocol Collection';
                     item.sortText = `0_${String(index).padStart(4, '0')}_${collection}`;
@@ -161,7 +161,7 @@ export class AtpiCompletionItemProvider implements vscode.CompletionItemProvider
 
                 // Add documentation
                 item.documentation = new vscode.MarkdownString(
-                    this.getCollectionDocumentation(collection)
+                    `AT Protocol collection: ${collection}`
                 );
 
                 // Set detail
@@ -181,28 +181,5 @@ export class AtpiCompletionItemProvider implements vscode.CompletionItemProvider
             console.error('Error providing completions:', error);
             return undefined;
         }
-    }
-
-    private getCollectionDocumentation(collection: string): string {
-        // Provide documentation for common collections
-        const docs: Record<string, string> = {
-            'app.bsky.actor.profile': 'User profile information including display name, bio, and avatar',
-            'app.bsky.feed.post': 'Individual posts/skeets in the feed',
-            'app.bsky.feed.like': 'Like records for posts',
-            'app.bsky.feed.repost': 'Repost/reskeet records',
-            'app.bsky.graph.follow': 'Follow relationships between users',
-            'app.bsky.graph.block': 'Block relationships between users',
-            'app.bsky.graph.list': 'User-created lists (mute lists, user lists, etc)',
-            'app.bsky.graph.listblock': 'Block entire lists of users',
-            'app.bsky.graph.listitem': 'Individual items within a list',
-            'app.bsky.notification.listNotifications': 'User notifications',
-            'app.bsky.richtext.facet': 'Rich text formatting (mentions, links, etc)',
-            'app.bsky.embed.images': 'Image embeds in posts',
-            'app.bsky.embed.external': 'External link embeds',
-            'app.bsky.embed.record': 'Quote posts/embedded records',
-            'app.bsky.embed.recordWithMedia': 'Quote posts with media attachments'
-        };
-
-        return docs[collection] || `AT Protocol collection: ${collection}`;
     }
 }

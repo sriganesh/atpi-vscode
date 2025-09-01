@@ -2,6 +2,12 @@
 
 All notable changes to the "atpi-vscode" extension will be documented in this file.
 
+## [1.0.6] - 2025-09-01
+
+### Changed:
+- Simplified completion provider documentation for collections
+- Removed detailed collection documentation method for cleaner code
+
 ## [1.0.5] - 2025-08-17
 
 ### Fixed:
