@@ -2,6 +2,11 @@
 
 All notable changes to the "atpi-vscode" extension will be documented in this file.
 
+## [1.0.7] - 2025-09-04
+
+### Changed:
+- Updated atpi dependency to version 1.0.7 for latest features and bug fixes
+
 ## [1.0.6] - 2025-09-01
 
 ### Changed:
