@@ -2,7 +2,7 @@
 
 Resolve and explore AT Protocol URLs directly in Visual Studio Code. This extension integrates the [ATPI](https://github.com/sriganesh/atpi-npm) tool to provide instant access to AT Protocol data while you code.
 
-![ATPI VSCode Demo](demo.gif)
+![ATPI VSCode Demo](atpi-vscode.gif)
 
 ## Features
 
